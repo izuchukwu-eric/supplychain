@@ -7,7 +7,7 @@ module.exports = {
   networks: {
     develop: {
       port: 8545,
-      network_id: 1337
+      network_id: 31337
     },
   },
   compilers: {
