@@ -29,7 +29,9 @@ class App extends Component {
         ItemContract.networks[this.networkId] && ItemContract.networks[this.networkId].address,
       );
 
+      //call the payment event function
       this.listenToPaymentEvent();
+      
       // Set loaded to true
       this.setState({ loaded: true });
     } catch (error) {
@@ -41,16 +43,20 @@ class App extends Component {
     }
   };
 
+  //function to listen to payment events
   listenToPaymentEvent = () => {
     let self = this;
     this.itemManager.events.SupplyChainStep().on("data", async function(event) {
       console.log(event);
       let itemObj = await self.itemManager.methods.items(event.returnValues._itemIndex).call();
       console.log(itemObj);
-      alert("Item " +itemObj._identifier + " was paid, deliver it now!");
+      if(itemObj._state == 1) {
+        alert("Item " +itemObj._identifier + " was paid, deliver it now!");    
+      }
     })
   }
 
+  //function to update the state of the inputs
   handleInputChange = (event) => {
     const target = event.target;
     const value = target.type === "Checkbox" ? target.checked : target.value;
@@ -60,6 +66,7 @@ class App extends Component {
     })
   }
 
+  //function to submit create the item after submiting
   handleSubmit = async() => {
     const {cost, itemName} = this.state;
    const result = await this.itemManager.methods.createItem(itemName, cost).send({from: this.accounts[0]});
