@@ -13,8 +13,9 @@ Automated supply chain solution on the blockchain.
 - Understand Unit Testing with Truffle
 - Understand Events in HTML
 
-## Installations:
-Install node modules
+## Installations
+Navigate into the client folder and install node modules:
 ```
 yarn add
 ```
+
