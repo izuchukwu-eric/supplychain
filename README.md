@@ -14,8 +14,24 @@ Automated supply chain solution on the blockchain.
 - Understand Events in HTML
 
 ## Installations
-Navigate into the client folder and install node modules:
+1. Navigate into the client folder and install node modules:
 ```
-yarn add
+#install using Npm
+npm install
+
+# install using Yarn
+yarn
 ```
+2. start the local truffle node
+```
+truffle develop
+```
+3. migrate/compile smart contracts
+```
+migrate
+```
+4. run test
+ ```
+ truffle test
+ ```
 
