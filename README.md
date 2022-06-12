@@ -34,4 +34,8 @@ migrate
  ```
  truffle test
  ```
+5. Navigate into the client folder and start app
+```
+npm start
+```
 
