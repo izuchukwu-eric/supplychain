@@ -14,3 +14,7 @@ Automated supply chain solution on the blockchain.
 - Understand Events in HTML
 
 ## Installations:
+Install node modules
+```
+yarn add
+```
